@@ -15,6 +15,7 @@
 //Attenzione: è importante restituire un nuovo array, e non modificare l’array come parametro della
 //funzione!
 
+//4
 //int sommaElementiArray(int[] array): che preso un array di numeri interi, restituisca la somma
 //totale di tutti gli elementi dell’array.
 
@@ -28,18 +29,54 @@
 //Stampare la somma di tutti i numeri elevati al quadrati
 
 
-//1 - Funzione che stampa array di interi
-Console.WriteLine("Esercizio 1");
-Console.WriteLine();
-int[] arrayInteri = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
+using System;
+
+
+Console.WriteLine();
+int[] arrayInteri = { 2, 6, 7, 5, 3, 9 };
+int somma = 0;
+
+
+
+Console.WriteLine("Esercizio 1: stampa dell'array dato");
+Console.WriteLine();
+StampaArrayInteri(arrayInteri);
+Console.WriteLine();
+Console.WriteLine("---------------------------------------------------------------------");
+
+
+Console.WriteLine("Esercizio 2: stampa dell'array dato al quadato");
+Console.WriteLine();
+arrayQuadrato(arrayInteri);
+Console.WriteLine();
+
+Console.WriteLine("Esercizio 2: verifica che l'array di partenza è invariato");
+Console.WriteLine();
+StampaArrayInteri(arrayInteri);
+Console.WriteLine();
+Console.WriteLine("---------------------------------------------------------------------");
+
+
+Console.WriteLine("Esercizio 3: stampa la somma dei numeri presenti nell'array dato");
+Console.WriteLine();
 
 StampaArrayInteri(arrayInteri);
+Console.WriteLine();
 
+somma = getSommaArray(arrayInteri);
+Console.WriteLine("La somma dei numeri dell'array è " + somma);
+
+
+
+
+//FUNZIONI
+
+//1 - Funzione che stampa array di interi
 void StampaArrayInteri(int[] array)
 {
-    Console.WriteLine("Stampa di un array di interi");
-    Console.WriteLine();
+    //Console.WriteLine("Stampa di un array di interi");
+    //Console.WriteLine();
     Console.Write("[");
 
     for (int i = 0; i < array.Length; i++)
@@ -56,8 +93,53 @@ void StampaArrayInteri(int[] array)
     Console.WriteLine();
 }
 
+
 //2 - Funzione che restituisca il quadrato del numero passato come parametro
-Console.WriteLine("Esercizio 2");
+int getQuadrato(int numero)
+{
+    int quadrato;
+
+    quadrato = (int)Math.Pow(numero, 2);
+  
+    return quadrato;
+}
+
+//3 - Funzione che restituisca un nuovo array al quadrato.
+
+void arrayQuadrato(int[] array)
+{
+    //Console.WriteLine("Array in entrata");
+    //StampaArrayInteri(array);
+    //Console.WriteLine();
+
+    int[] arrayIntF = (int[])array.Clone();
+    
+    for (int i = 0; i < array.Length; i++)
+    {
+        arrayIntF[i] = getQuadrato(arrayIntF[i]);
+    }
+    //Console.WriteLine("Array in uscita al quadrato");
+    StampaArrayInteri(arrayIntF);
+    //Console.WriteLine();
+}
+
+//4 - funzione che preso un array di interi restitusce la somma
+
+int getSommaArray(int[] array)
+{
+    int sum = 0;
+
+    for(int i = 0; i < array.Length;i++) 
+    {
+        sum += array[i];
+    }
+
+    return sum;
+}
+
+
+/*
+ Console.WriteLine("Esercizio 2");
 int numeroUtente, quadratoNumeroUtente;
 
 Console.WriteLine();
@@ -69,37 +151,4 @@ quadratoNumeroUtente = getQuadrato(numeroUtente);
 
 Console.WriteLine("Il quadrato del numero " + numeroUtente + " è " + quadratoNumeroUtente);
 Console.WriteLine();
-
-int getQuadrato(int numero)
-{
-    int quadrato;
-
-    quadrato = (int)Math.Pow(numero, 2);
-  
-    return quadrato;
-}
-
-//3 - Funzione che restituisca un nuovo array al quadrato.
-Console.WriteLine();
-Console.WriteLine("Esercizio 3");
-Console.WriteLine();
-
-int[] arrayInt = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-
-arrayQuadrato(arrayInt);
-void arrayQuadrato(int[] array)
-{
-    Console.WriteLine("Array in entrata");
-    StampaArrayInteri(array);
-    Console.WriteLine();
-
-    int[] arrayIntF = (int[])array.Clone();
-    
-    for (int i = 0; i < array.Length; i++)
-    {
-        arrayIntF[i] = getQuadrato(arrayIntF[i]);
-    }
-    Console.WriteLine("Array in uscita al quadrato");
-    StampaArrayInteri(arrayIntF);
-    Console.WriteLine();
-}
+*/
