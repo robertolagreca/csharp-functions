@@ -2,10 +2,13 @@
 
 //Scrivete nel vostro programma principale Program.cs le seguenti funzioni di base:
 
+//1
 //void StampaArrayInteri(int[] array): che preso un array di numeri interi, stampa
 //a video il contenuto dell’array in questa forma “[elemento 1, elemento 2, elemento 3, ...]”.
-//Potete prendere quella fatta in classe questa mattina
+
+//2
 //int Quadrato(int numero): che vi restituisca il quadrato del numero passato come parametro.
+
 //7int[] ElevaArrayAlQuadrato(int[] array): che preso un array di numeri interi, restituisca
 //un nuovo array con tutti gli elementi elevati quadrato.
 //Attenzione: è importante restituire un nuovo array, e non modificare l’array come parametro della
@@ -22,6 +25,8 @@
 //Stampare la somma di tutti i numeri
 //Stampare la somma di tutti i numeri elevati al quadrati
 
+
+//1 - Funzione che stampa array di interi
 int[] arrayInteri = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
 
@@ -46,3 +51,27 @@ void StampaArrayInteri(int[] array)
     Console.Write("]");
     Console.WriteLine();
 }
+
+//2 - Funzione che restituisca il quadrato del numero passato come parametro
+
+int numeroUtente, quadratoNumeroUtente;
+
+Console.WriteLine();
+Console.WriteLine("Inserisci un numero e ti verrà restituito il quadrato");
+numeroUtente = int.Parse(Console.ReadLine());
+Console.WriteLine();
+
+quadratoNumeroUtente = getQuadrato(numeroUtente);
+
+Console.WriteLine("Il quadrato del numero " + numeroUtente + " è " + quadratoNumeroUtente);
+Console.WriteLine();
+
+int getQuadrato(int numero)
+{
+    int quadrato;
+
+    quadrato = (int)Math.Pow(numero, 2);
+  
+    return quadrato;
+}
+
